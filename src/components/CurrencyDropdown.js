@@ -2,9 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 function CurrencyDropdown() {
-
     const { dispatch, currency } = useContext(AppContext);
-
     const handleCurrencyChange = (event) => {
         const newCurrency = event.target.value;
         dispatch({
@@ -12,14 +10,9 @@ function CurrencyDropdown() {
             payload: newCurrency,
         });
     };
-
     return (
         <div className="alert alert-success">
-            <select
-                className="form-control"
-                value={currency}
-                onChange={handleCurrencyChange}
-            >
+            <select className="form-control" value={currency} onChange={handleCurrencyChange}>
                 <option value="">Select Currency</option>
                 <option value="$">$ Dollar</option>
                 <option value="£">£ Pound</option>
@@ -29,5 +22,4 @@ function CurrencyDropdown() {
         </div>
     );
 }
-
 export default CurrencyDropdown;
